@@ -24,9 +24,11 @@ int main(int argc, const char * argv[]) {
 
     image.read(imageFile);
 
-    auto scaledImage = scale(image, 2);
+    auto scaledImage = scale(image, 2, 8);
 
     scaledImage.write(imageFileName + " Rescaled" + ".png");
+    
 
     return 0;
+
 }

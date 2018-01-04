@@ -30,7 +30,7 @@
 		660C44351FAD07BD00DF72C6 /* libpng16.16.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpng16.16.dylib; path = ../../../../usr/local/Cellar/libpng/1.6.34/lib/libpng16.16.dylib; sourceTree = "<group>"; };
 		660C44371FAD2C9200DF72C6 /* Image.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Image.cpp; sourceTree = "<group>"; };
 		660C44381FAD2C9200DF72C6 /* Image.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Image.hpp; sourceTree = "<group>"; };
-		665440F11FB52C2C0083522A /* Util.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Util.hpp; sourceTree = "<group>"; };
+		665440F11FB52C2C0083522A /* Util.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; path = Util.hpp; sourceTree = "<group>"; };
 		66614A961FBA336E008D1155 /* Random.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Random.hpp; sourceTree = "<group>"; };
 		66614A991FBA425B008D1155 /* Random.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Random.cpp; sourceTree = "<group>"; };
 		66A7FC6A1FACF174003EE9D8 /* ImageTool */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ImageTool; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,7 +60,7 @@
 		66A7FC611FACF174003EE9D8 = {
 			isa = PBXGroup;
 			children = (
-				66A7FC6C1FACF174003EE9D8 /* ImageTool */,
+				66A7FC6C1FACF174003EE9D8 /* Source */,
 				66A7FC6B1FACF174003EE9D8 /* Products */,
 				660C44341FAD07BD00DF72C6 /* Frameworks */,
 			);
@@ -74,7 +74,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		66A7FC6C1FACF174003EE9D8 /* ImageTool */ = {
+		66A7FC6C1FACF174003EE9D8 /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				665440F11FB52C2C0083522A /* Util.hpp */,
@@ -84,7 +84,7 @@
 				660C44371FAD2C9200DF72C6 /* Image.cpp */,
 				66A7FC6D1FACF174003EE9D8 /* main.cpp */,
 			);
-			path = ImageTool;
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,7 +213,10 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"--system-header-prefix=png++/",
+				);
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -270,7 +273,10 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"--system-header-prefix=png++/",
+				);
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -284,7 +290,11 @@
 					"$(inherited)",
 					/usr/local/Cellar/libpng/1.6.34/lib,
 				);
-				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"--system-header-prefix=png++/",
+					"--system-header-prefix=blah/",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -298,7 +308,11 @@
 					"$(inherited)",
 					/usr/local/Cellar/libpng/1.6.34/lib,
 				);
-				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"--system-header-prefix=png++/",
+					"--system-header-prefix=blah/",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
