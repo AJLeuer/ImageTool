@@ -84,3 +84,49 @@ png::basic_rgb_pixel<byte> shiftColors(const png::basic_rgb_pixel<byte> & pixel)
     
     return colorShiftedPixel;
 }
+
+png::image<png::rgb_pixel> createRandomImage(unsigned width, unsigned height) {
+    png::image<png::rgb_pixel> image = png::image<png::rgb_pixel>(width, height);
+    
+
+    FastRand<uint8_t> rgbRandomizer(0x00, 0xFF);
+    
+    for (unsigned x = 0; x < width; x++) {
+        for (unsigned y = 0; y < height; y++) {
+            
+            png::rgb_pixel pixel = png::rgb_pixel{rgbRandomizer(), rgbRandomizer(), rgbRandomizer()};
+            
+            image.set_pixel(x, y, pixel);
+        }
+    }
+    
+    return image;
+}
+
+
+png::image<png::rgb_pixel> createRandomImageFromPixels(unsigned width, unsigned height, vector<png::rgb_pixel> pixels) {
+    png::image<png::rgb_pixel> image = png::image<png::rgb_pixel>(width, height);
+    
+    FastRand<unsigned long> pixelPicker(0, pixels.size() - 1);
+    
+    for (unsigned x = 0; x < width; x++) {
+        for (unsigned y = 0; y < height; y++) {
+            
+            png::rgb_pixel pixel = pixels.at(pixelPicker.nextValue());
+            
+            image.set_pixel(x, y, pixel);
+        }
+    }
+    
+    return image;
+}
+
+
+
+
+
+
+
+
+
+

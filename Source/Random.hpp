@@ -7,13 +7,18 @@
 //
 
 #pragma once
+/* The classes below are exported */
+#pragma GCC visibility push(default)
 
 #include <iostream>
 #include <limits>
 #include <random>
 #include <cmath>
+#include <thread>
 
-using namespace std ;
+using std::uniform_int_distribution;
+using std::uniform_real_distribution;
+using std::thread;
 
 template<typename N>
 class FastRand {
@@ -236,3 +241,5 @@ SomeEnum randomEnumeration(N maximum) {
 	N num = randm() ;
 	return SomeEnum(num) ;
 }
+
+#pragma GCC visibility pop

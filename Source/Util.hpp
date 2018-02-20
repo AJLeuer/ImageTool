@@ -5,6 +5,8 @@
 //  Created by Adam J Leuer on 2017-11-9.
 //  Copyright © 2017 ThoughtWorks, Inc. All rights reserved.
 //
+/* The classes below are exported */
+#pragma GCC visibility push(default)
 
 #include <iostream>
 
@@ -52,3 +54,5 @@ N generatePossiblyRandomPixelCoord(N defalt, FastRand<N> & randomGenerator) {
     
     return defalt;
 }
+
+#pragma GCC visibility pop
